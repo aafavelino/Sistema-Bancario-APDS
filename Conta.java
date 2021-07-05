@@ -4,6 +4,18 @@ public class Conta implements PadraoConta {
 	private int numConta;
 
 	ArrayList<String> extratoConta = new ArrayList<String>();
+	
+	public Conta (float saldo, int agencia, int numConta) {
+		this.saldo = saldo;
+		this.agencia = agencia;
+		this.numConta = numConta;
+	}
+
+
+	public Conta () {
+
+	}
+
 
 	@Override
 	public void saque (float valor) {  
