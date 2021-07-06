@@ -3,7 +3,7 @@ public class ContaAcoes extends Conta {
 
     public ContaAcoes(float rendimento,float saldo,int agencia, int numConta) {
         super(saldo,agencia,numConta);
-        this.rendimento = redimento;
+        this.rendimento = rendimento;
 
     }
 

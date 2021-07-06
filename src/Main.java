@@ -38,9 +38,9 @@ public class Main {
              if(escolha.equals("CC")){
                 c = new ContaCorrente(10.0f , 0.0f, 73, 132);
              }else if(escolha.equals("CP")){
-                c = new ContaPopanca();
+                c = new ContaPoupanca(0.1f, 0.0f,42, 30);
              }else if(escolha.equals("CA")){
-                c = new ContaAcoes();
+                c = new ContaAcoes(0.1f, 0.0f,43, 32);
              }else{
                  System.out.println("Conta inválida");
                  break;
@@ -66,7 +66,7 @@ public class Main {
              System.out.println("Digite o valor que deseja transferir: ");
              valor = ler.nextFloat();
 
-                 banco.buscarCliente(cpf).conta.transferencia(valor, banco.buscarCliente(cpf2));
+                 banco.buscarCliente(cpf).conta.transferencia(valor, banco.buscarCliente(cpf2).conta);
                  System.out.println("Transferência realizada com sucesso");
                  System.out.println("Valor tranferido = " + valor);
             
@@ -75,19 +75,21 @@ public class Main {
         case 4: // Retirar extrato
               System.out.println("Digite seu cpf:");
               cpf = ler.nextLine();
-              System.out.println("Historico  da conta: " + banco.buscarCliente(cpf).retornarHistorico());
+              System.out.println("Historico  da conta: ");
+              banco.buscarCliente(cpf).retornarHistorico();
             break;
 
         case 5: // Depositar
-                System.out.println("Digite seu cpf:");
+                System.out.println("Digite o cpf para depósito:");
                 cpf = ler.nextLine();
                 System.out.println("Digite o valor que você quer depositar: ");
                 valor = ler.nextFloat();
+
                 if(valor > 0){
-                    banco.buscarCliente(cpf).conta.deposito(valor);
+                    banco.buscarCliente(cpf).conta.deposito(valor, banco.buscarCliente(cpf).conta);
                     System.out.println("Deposito realizado com sucesso");
                     System.out.println("Valor Depositado: R$" + valor);
-                    System.out.println("Saldo total: R$" +  banco.buscaCliente(cpf).conta.retornarSaldo());
+                    System.out.println("Saldo total: R$" +  banco.buscarCliente(cpf).conta.retornarSaldo());
                 }else{
                     System.out.println("Valor insuficiente");
                 }
