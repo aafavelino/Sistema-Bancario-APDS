@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Conta implements PadraoConta {
 	private float saldo; 
 	private int agencia; 
@@ -20,8 +22,8 @@ public class Conta implements PadraoConta {
 	@Override
 	public void saque (float valor) {  
 		if (saldo>=valor){
-			saldo-=valor
-			extratoConta.add("Sacou "+ String(valor));
+			saldo-= valor;
+			extratoConta.add("Sacou "+ valor);
 		} else{
 			System.out.println("Erro:Saque maior que o saldo");
 		}  
@@ -29,7 +31,7 @@ public class Conta implements PadraoConta {
 
 	@Override 
 	public void deposito (float valor, Conta conta) {
-		extratoConta.add("Depositou "+ String(valor));
+		extratoConta.add("Depositou "+ valor);
 		conta.saldo+=valor;
 	}
 
@@ -38,7 +40,7 @@ public class Conta implements PadraoConta {
 		if (saldo>=valor){
 	 		saldo-=valor;
 	 		conta.saldo+=valor;
-	 		extratoConta.add("Transferiu "+ String(valor)+" Para "+ String(conta.numConta));
+	 		extratoConta.add("Transferiu "+ valor +" Para "+ conta.numConta);
 	 	}
 	 	else{
 	 		System.out.println("Erro:Transferencia maior que o saldo");

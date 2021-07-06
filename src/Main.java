@@ -86,7 +86,7 @@ public class Main {
                 if(valor > 0){
                     banco.buscarCliente(cpf).conta.deposito(valor);
                     System.out.println("Deposito realizado com sucesso");
-                    System.out.println("Valor Depositado: R$" + valor));
+                    System.out.println("Valor Depositado: R$" + valor);
                     System.out.println("Saldo total: R$" +  banco.buscaCliente(cpf).conta.retornarSaldo());
                 }else{
                     System.out.println("Valor insuficiente");
