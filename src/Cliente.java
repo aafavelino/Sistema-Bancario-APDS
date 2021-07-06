@@ -13,7 +13,7 @@ public class Cliente {
    historico=new ArrayList <String>();
   }
   
- public void adcionarnoHistorico(String operacao) {
+ public void adicionarHistorico(String operacao) {
    historico.add(operacao);
   }
 

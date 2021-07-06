@@ -28,12 +28,12 @@ public class Main {
      
      switch (op) {
          case 1: // Adicionar cliente
-             System.out.print("\nDigite seu cpf: ");
-             cpf = ler.nextLine();
-             System.out.println("Digite seu nome: ");
-             nome = ler.nextLine();
-             System.out.println("Digite o tipo de conta ( CC, CP, CA)");
-             escolha = ler.nextLine();
+             System.out.print("\nDigite seu cpf: \n");
+             cpf = ler.next();
+             System.out.print("Digite seu nome: \n");
+             nome = ler.next();
+             System.out.print("Digite o tipo de conta ( CC, CP, CA)\n");
+             escolha = ler.next();
 
              if(escolha.equals("CC")){
                 c = new ContaCorrente(10.0f , 0.0f, 73, 132);
@@ -48,9 +48,9 @@ public class Main {
              banco.cadastrarCliente(nome,cpf, c);
              break;
         case 2: // Sacar
-                System.out.println("Digite seu cpf:");
-                cpf = ler.nextLine();
-                System.out.println("Digite o valor que você quer sacar:");
+                System.out.print("Digite seu cpf:\n");
+                cpf = ler.next();
+                System.out.print("Digite o valor que você quer sacar:\n");
                 valor = ler.nextFloat();
                     banco.buscarCliente(cpf).conta.saque(valor);
                     System.out.println("Saque realizado com sucesso");
@@ -59,11 +59,11 @@ public class Main {
              break;
         case 3: // Fazer tranferência
              
-             System.out.println("Digite seu cpf:");
-             cpf = ler.nextLine();
-             System.out.println("Digite o cpf do cliente que deseja tranferir: ");
-             cpf2 = ler.nextLine();
-             System.out.println("Digite o valor que deseja transferir: ");
+             System.out.print("Digite seu cpf:\n");
+             cpf = ler.next();
+             System.out.print("Digite o cpf do cliente que deseja tranferir:\n");
+             cpf2 = ler.next();
+             System.out.print("Digite o valor que deseja transferir: \n");
              valor = ler.nextFloat();
 
                  banco.buscarCliente(cpf).conta.transferencia(valor, banco.buscarCliente(cpf2).conta);
@@ -73,16 +73,16 @@ public class Main {
              break;
 
         case 4: // Retirar extrato
-              System.out.println("Digite seu cpf:");
-              cpf = ler.nextLine();
+              System.out.print("Digite seu cpf:\n");
+              cpf = ler.next();
               System.out.println("Historico  da conta: ");
               banco.buscarCliente(cpf).retornarHistorico();
             break;
 
         case 5: // Depositar
-                System.out.println("Digite o cpf para depósito:");
-                cpf = ler.nextLine();
-                System.out.println("Digite o valor que você quer depositar: ");
+                System.out.print("Digite o cpf para depósito:\n");
+                cpf = ler.next();
+                System.out.print("Digite o valor que você quer depositar: \n");
                 valor = ler.nextFloat();
 
                 if(valor > 0){
@@ -90,18 +90,18 @@ public class Main {
                     System.out.println("Deposito realizado com sucesso");
                     System.out.println("Valor Depositado: R$" + valor);
                     System.out.println("Saldo total: R$" +  banco.buscarCliente(cpf).conta.retornarSaldo());
+                    banco.buscarCliente(cpf).adicionarHistorico("Deposito: " + valor);
                 }else{
                     System.out.println("Valor insuficiente");
                 }
             break;
         case 6: // retornar saldo da conta
-              System.out.println("Digite seu cpf:");
-              cpf = ler.nextLine();
+              System.out.print("Digite seu cpf:\n");
+              cpf = ler.next();
               System.out.println("Saldo da conta: " + banco.buscarCliente(cpf).conta.retornarSaldo());
             break;
          
-         default:
-            System.out.println("Opção inválida, digite novamente");
+         
      }
      }while(op != 7);    
 
