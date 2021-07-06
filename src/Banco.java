@@ -5,18 +5,15 @@ public class Banco {
     List<Cliente> clientes = new ArrayList <Cliente>();
     
     public Cliente buscarCliente (String cpf) {
-    	
-    	for( String achandocpf : clientes){
-    		if (achandocpf.contains(cpf)) {
-    			return achandocpf;
+    	for(Cliente achandoCliente : clientes){
+    		if (achandoCliente.cpf.equals(cpf)) {
+    			return achandoCliente;
     		}		
     	}
     }
     
-    public void cadastrarCliente(String nome, String cpf, Conta conta) {
-    	
+    public void cadastrarCliente(String nome, String cpf, Conta conta) {	
     	Cliente auxcliente = new Cliente (nome, cpf, conta);
-    	
     	clientes.add(auxcliente);
     }
      
