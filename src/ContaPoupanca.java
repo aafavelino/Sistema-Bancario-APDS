@@ -1,14 +1,12 @@
 public class ContaPoupanca extends Conta{
   public float rendimento; 
-  public float saldoR;
-
-  public ContaPoupanca(int saldo){
-    saldoR=saldo+10/100;
-    rendimento=saldo-saldoR;
   
+  public ContaPoupanca(float rendimento, float saldo,int agencia, int numConta){
+    super(saldo, agencia, numConta);
+    this.rendimento=rendimento;
   }
-  public float retornarSaldo(int saldo, int rendimento){
-    return saldo+rendimento;
-    
+  @Override
+  public float retornarSaldo(){
+    return super.retornarSaldo()*rendimento;   
   }
 }
