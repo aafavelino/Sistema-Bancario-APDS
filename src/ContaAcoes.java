@@ -7,8 +7,9 @@ public class ContaAcoes extends Conta {
 
     }
 
-    }
     @Override
     public float retornarSaldo() {
         return super.retornarSaldo()*rendimento;
     }
+    
+} 
